@@ -1,203 +1,68 @@
-Some information around react.
+## Q: What is `Emmet`?
+A: `Emmet` is the essential toolkit for web-developers. It allows you to `type shortcuts` that are then expanded into full pieces of code for writing `HTML and CSS`, based on an abbreviation structure most developers already use that expands into full-fledged HTML markup and CSS rules.
 
 
-# Difference between a Library and Framework
+## Q: Difference between a `Library and Framework`?
+A: A `library` is a collection of packages that perform specific operations whereas a `framework` contains the basic flow and architecture of an application. The major difference between them is the complexity. Libraries contain a number of methods that a developer can just call whenever they write code. React js is library and Angular is Framework.
+The `framework` provides the flow of a software application and tells the developer what it needs and calls the code provided by the developer as required. If a `library` is used, the application calls the code from the library.
 
-A library is a collection of tools you use as needed, while a framework is a pre-defined structure where you build your entire project.
 
+## Q: What is `CDN`? Why do we use it?
+A: A `content delivery network (CDN)` refers to a geographically distributed group of servers that work together to provide fast delivery of Internet content.
+The main use of a CDN is to deliver content through a network of servers in a secure and efficient way.
 
 
-# CDN
+## Q: Why is `React known as React`?
+A: `React` is named React because of its ability to `react to changes in data`.
+React is called React because it was designed to be a declarative, efficient, and flexible JavaScript library for building user interfaces.
+The name `React` was chosen because the library was designed to allow developers to "react" to changes in state and data within an application, and to update the user interface in a declarative and efficient manner.
+`React` is a `JavaScript-based UI development library`. `Facebook` and an `open-source developer community` run it.
 
-CDN stands for Content Delivery Network. It is a distributed network of servers strategically located across various geographical locations to deliver web content, such as images, stylesheets, scripts, and other resources, more efficiently to users. The primary purpose of a CDN is to improve the performance, speed, and availability of web content for end-users.
 
-Key features and reasons why CDN is used:
+## Q: What is `crossorigin in script tag`?
+A: The `crossorigin` attribute sets the mode of the request to an HTTP CORS Request. 
+The purpose of crossorigin attribute is used to share the resources from one domain to another domain. Basically, it is used to handle the CORS request. It is used to handle the CORS request that checks whether it is safe to allow for sharing the resources from other domains.
+### _Syntax_
+```sh
+<script crossorigin="anonymous|use-credentials">
+```
 
-Faster Content Delivery:
+## Q: What is difference between `React and ReactDOM`?
+A: `React` is a JavaScript library for building User Interfaces whereas `ReactDOM` is also JavaScript library that allows `React to interact with the DOM`.
+The react package contains `React.createElement()`, `React.Component`, `React.Children`, and other helpers related to elements and component classes. You can think of these as the isomorphic or universal helpers that you need to build components. The react-dom package contains `ReactDOM.render()`, and in react-dom/server we have server-side rendering support with `ReactDOMServer.renderToString()` and `ReactDOMServer.renderToStaticMarkup()`.
 
-CDNs reduce latency by serving content from servers that are physically closer to the user. This results in faster load times for websites and web applications.
 
+## Q: What is difference between `react.development.js` and `react.production.js` files via `CDN`?
+A: `Development` is the stage of an application before it's made public while `production` is the term used for the same application when it's made `public`.
+`Development build` is several times (maybe 3-5x) `slower` than the `production build`.
 
-Load Balancing:
 
-CDNs distribute incoming traffic across multiple servers, preventing any single server from becoming overwhelmed with requests. This helps maintain consistent performance, especially during traffic spikes.
+## Q: What is `async and defer`?
+A: `Async` - The async attribute is a `boolean attribute`. The script is downloaded in `parallel(in the background)` to parsing the page, and `executed as soon` as it is available (do not block HTML DOM construction during downloading process) and don’t wait for anything.
+### _Syntax_
+```sh
+<script src="demo_async.js" async></script>
+```
 
+`Defer` - The defer attribute is a `boolean attribute`. The script is downloaded in `parallel(in the background)` to parsing the page, and `executed after the page` has finished parsing(when browser finished DOM construction). The `defer attribute` tells the browser `not to wait for the script`. Instead, the browser will continue to process the HTML, build DOM.
+### _Syntax_
+```sh
+<script src="demo_defer.js" defer></script>
+```
 
-Caching:
+Unless you're supporting ancient legacy systems, always add `type="module"` to all your script tags:
+```sh
+<script type="module" src="main.js"></script> and place the tag inside <head>
+```
+```sh
+ <script defer nomodule> can be used as a legacy fallback.
+```
 
-CDNs cache static content (like images and scripts) at various edge locations. When a user requests the content, it can be served directly from the nearest edge server, reducing the load on the origin server and speeding up content delivery.
 
+As the name suggests, it allows you to import `modules`, which makes it easier to organize your code.
+Enable `strict mode` by default. This makes your code run faster, and reports more runtime errors instead of silently ignoring them.
+Execute your code only after the DOM has `initialized`, which makes DOM manipulation easier. Thanks to this, you won't need to listen to load/readystatechange/DOMContentLoaded events.
+Prevent top level variables from implicitly polluting the global namespace.
+Allow you to use top-level await in supported engines.
+Load and parse your code `asynchronously`, which improves load performance.
 
-Global Availability:
-
-CDNs have a distributed network of servers worldwide. This global presence ensures that users from different geographical locations can access content quickly, regardless of the physical location of the origin server.
-
-
-Improved Scalability:
-
-CDNs can handle large amounts of traffic and distribute it efficiently across their network. This helps websites and applications scale more easily to accommodate increased user demand.
-Distributed Security:
-
-CDNs can provide security features such as DDoS (Distributed Denial of Service) protection and web application firewalls, helping to mitigate potential security threats.
-
-
-Bandwidth Savings:
-
-By offloading the delivery of static resources to the CDN, there is a reduction in the amount of bandwidth consumed by the origin server. This can lead to cost savings and improved efficiency.
-
-Reliability and Redundancy:
-
-CDNs often have multiple servers in different locations, offering redundancy. If one server becomes unavailable, another can seamlessly take over, ensuring continuous availability of content.
-
-
-# Why is React known as React?
-
-React, the JavaScript library for building user interfaces, was developed by Facebook. The name "React" comes from the way it handles changes in the user interface - by reacting to them. Specifically, React is designed to efficiently update and render components based on changes in the application's state.
-
-
-
-
-# What is crossorigin in script tag?
-
-The crossorigin attribute in the script tag is used to control how browsers handle loading of scripts from different origins (domains) with regards to Cross-Origin Resource Sharing (CORS). CORS is a security feature implemented by web browsers to prevent unauthorized access to resources on a different domain.
-
-When you include an external script in your HTML using the script tag, the browser may enforce the same-origin policy, which restricts scripts from making requests to a different domain than the one that served the original web page. The crossorigin attribute allows you to specify how the browser should handle loading the script when it is served from a different origin.
-
-
-
-# What is diference between React and ReactDOM ?
-
-React is the core library for building user interfaces, handling components, state, and rendering. ReactDOM, on the other hand, provides methods to interact with the actual DOM and render React components into it. While React can be used for other platforms (e.g., React Native for mobile development), ReactDOM is specific to web applications.
-
-
-
-# What is difference between react.development.js and react.production.js files via CDN?
-
-When you include React via a CDN (Content Delivery Network), you might notice that there are different versions of the React library for development and production environments. The primary differences between react.development.js and react.production.js files are related to performance optimizations, error handling, and file size.
-
-<script src="https://unpkg.com/react@17/umd/react.development.js"></script>
-
-<script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-
-It's common to use the development version during development for better debugging capabilities and then switch to the production version for deployment to ensure optimal performance.
-
-
-
-# Difference between async and defer?
-
-
-The async and defer attributes are used in HTML script tags to control how the associated JavaScript file is fetched and executed in the browser.
-
-async Attribute:
-Usage:
-
-<script async src="example.js"></script>
-Behavior:
-
-The async attribute is used to make the script load asynchronously. This means that the script will be fetched in the background while the HTML parsing and rendering continue.
-The script will be executed as soon as it is downloaded, without waiting for the HTML parsing to complete.
-If there are multiple scripts with the async attribute, they may be executed out of order, depending on which one finishes downloading first.
-Use Case:
-
-It is useful when the script doesn't depend on other scripts or the order of execution is not critical.
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Async Example</title>
-</head>
-<body>
-
-  <!-- The script will load asynchronously -->
-  <script async src="script1.js"></script>
-  
-  <!-- Other content of the HTML page -->
-
-  <!-- This script may start executing before the HTML parsing is complete -->
-  <script async src="script2.js"></script>
-
-</body>
-</html>
-In the async example, script1.js and script2.js may execute out of order, depending on which one finishes downloading first.
-
-
-defer Attribute:
-Usage:
-
-<script defer src="example.js"></script>
-Behavior:
-
-The defer attribute is used to make the script load deferred. The script will be fetched in the background, but its execution will be deferred until after the HTML parsing is complete.
-Scripts with defer will be executed in the order they appear in the HTML.
-Use Case:
-
-It is useful when the script depends on the DOM structure and should be executed in order.
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Defer Example</title>
-</head>
-<body>
-
-  <!-- The script will load deferred -->
-  <script defer src="script1.js"></script>
-  
-  <!-- Other content of the HTML page -->
-
-  <!-- This script will wait for HTML parsing to complete before executing -->
-  <script defer src="script2.js"></script>
-
-</body>
-</html>
-
-In the defer example, script1.js and script2.js will execute in the order they appear in the HTML, and both will wait for HTML parsing to complete.
-
-
-# Behaviour of arrow function and a normal function in js
-
-
-The behavior you've described is related to how the this keyword is handled in JavaScript, particularly in the context of arrow functions and regular functions.
-
-Arrow Functions:
-In arrow functions, the value of this is not dynamically scoped. Instead, it retains the value of this from the surrounding lexical scope. If an arrow function is defined within a global scope or a function where this is not explicitly set, it will capture the value of this from the global context, which is the window object in a browser environment.
-
-javascript
-Copy code
-const arrowFunction = () => {
-  console.log(this); // Points to the global object (window in a browser)
-};
-
-arrowFunction();
-Regular Functions:
-In regular functions, the value of this is dynamically scoped. It is determined by how the function is called. When a function is invoked as a method of an object, this refers to the object that the method is called on.
-
-javascript
-Copy code
-const obj = {
-  regularFunction: function() {
-    console.log(this); // Points to the current object (obj)
-  }
-};
-
-obj.regularFunction();
-However, if a regular function is not called as a method of an object or if this is explicitly set using methods like bind, call, or apply, it may behave differently.
-
-Example of Explicit Binding:
-javascript
-Copy code
-function regularFunction() {
-  console.log(this);
-}
-
-const explicitObj = { name: "Explicit Object" };
-
-const boundFunction = regularFunction.bind(explicitObj);
-boundFunction(); // Points to the explicitly bound object (explicitObj)
-In summary, the behavior of this in arrow functions and regular functions is different. Arrow functions capture this from the surrounding lexical scope, which might lead to the window object if not explicitly set within a specific context. Regular functions dynamically determine this based on how they are invoked, with the possibility of being explicitly set using binding methods.
