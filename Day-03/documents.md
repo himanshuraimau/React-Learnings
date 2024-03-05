@@ -1,5 +1,3 @@
-## Namaste React Course by Akshay Saini
-# Chapter 03 - Laying the Foundation
 
 ## Q: What is `JSX`?
 A: JSX stands for JavaScript XML.

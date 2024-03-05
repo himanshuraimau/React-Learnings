@@ -1,6 +1,3 @@
-## Namaste React Course by Akshay Saini
-# Chapter 03 - Laying the Foundation Coding Assignment
-
 
 ## Q: Create a `Nested header Element` using `React.createElement`(h1,h2,h3 inside a div with class "title")
 ```
